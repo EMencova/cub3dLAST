@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:21:36 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 12:23:58 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 13:12:05 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 # define INVALID_CHAR "Invalid character in map"
 # define COLOR_RANGE "Color values out of range."
 # define COLOR_FORMAT "Color format incorrect."
+# define WRONG_TEX "Wrong texture path."
 
 # define TILE_SIZE     64
 # define KEY_W         13

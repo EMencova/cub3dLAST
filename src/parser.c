@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:04:05 by yfontene          #+#    #+#             */
-/*   Updated: 2024/11/01 12:13:30 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 13:16:05 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,22 @@ int	parse_rgb(const char *str, t_color *color)
     return (color->rgb);
 }
 
+/*int parse_color(const char *line, t_color *color)
+{
+    char **split;
+
+    split = ft_split(line, ' ');
+    if (split[0] && split[1])
+    {
+        printf("Color: %s\n", split[1]);
+        printf("color->rgb: %d\n", color->rgb);
+        color->rgb = ft_parse_rgb(split[1], color);  // Usar a nova função de parsing
+        //printf("Color RGB: (%d, %d, %d) -> RGB Integer: %d\n", color->r, color->g, color->b, color->rgb);
+    }
+    
+    free_split(split);
+    return (color->rgb);
+}*/
 int parse_color(const char *line, t_color *color)
 {
 	char **split;
@@ -106,6 +122,15 @@ int parse_color(const char *line, t_color *color)
 	return (color->rgb);
 }
 
+void check_texture_path(void *texture_img, const char *texture_path)
+{
+	if (!texture_img)
+    {
+		printf("Erro:\n"WRONG_TEX" <%s>\n", texture_path);
+		exit(1);
+	}
+}
+
 void load_textures(t_game *game)
 {
 	int width;
@@ -115,9 +140,19 @@ void load_textures(t_game *game)
 	game->texture.west[ft_strlen(game->texture.west) - 1] = '\0';
 	game->texture.east[ft_strlen(game->texture.east) - 1] = '\0';
     game->texture.north_img = mlx_xpm_file_to_image(game->data.mlx, game->texture.north, &width, &height);
+    if (!game->texture.north_img)
+        check_texture_path(game->texture.north_img, game->texture.north);
     game->texture.south_img = mlx_xpm_file_to_image(game->data.mlx, game->texture.south, &width, &height);
+    if (!game->texture.south_img)
+        check_texture_path(game->texture.south_img, game->texture.south);
     game->texture.west_img = mlx_xpm_file_to_image(game->data.mlx, game->texture.west, &width, &height);
+    if (!game->texture.west_img)
+        check_texture_path(game->texture.west_img, game->texture.west);
     game->texture.east_img = mlx_xpm_file_to_image(game->data.mlx, game->texture.east, &width, &height);
+    if (!game->texture.east_img)
+    {
+        check_texture_path(game->texture.east_img, game->texture.east);
+    }
 	game->texture.width = width;
 	game->texture.height = height;
 }
