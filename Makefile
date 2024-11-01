@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: emencova <emencova@student.42.fr>          +#+  +:+       +#+         #
+#    By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/23 13:15:17 by yfontene          #+#    #+#              #
-#    Updated: 2024/10/30 15:39:06 by emencova         ###   ########.fr        #
+#    Updated: 2024/11/01 12:25:12 by yasmine          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS=					main.c\
 						./src/parser.c\
 						./src/parser_checks.c\
 						./src/pasrse_in_out.c\
+						./src/parser_utils.c\
 						./src/render.c\
 						./src/cmds.c\
 						./src/moves.c\

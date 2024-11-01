@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:21:36 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 12:13:10 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:23:58 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,12 +157,10 @@ typedef struct s_game
 
 /* Parser */
 void load_map(const char *filename, t_game *game);
-//void parse_texture(char *line, t_texture *texture, t_data *data);
 void parse_map(char **file_lines, t_map *map);
 void parse_player(t_map *map, t_game *game);
 char **read_file_cub(const char *filename);
 int validate_player(t_map *map);
-//int validate_map(t_map *map);
 int validate_map(char **map_tab, int height);
 int count_lines(const char *filename);
 void free_file_lines(char **lines);
@@ -173,6 +171,8 @@ void move_y(t_game *game, char direction);
 void move_x(t_game *game, char direction);
 void move_player(t_game *game, char direction);
 void rotate_player(t_game *game, float angle);
+int is_valid_map_char(char c);
+int check_row_border(char **map_tab, int row, int start);
 
 /* Mlx */
 int close_window(t_game *game);
