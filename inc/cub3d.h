@@ -6,7 +6,7 @@
 /*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:21:36 by emencova          #+#    #+#             */
-/*   Updated: 2024/10/30 23:02:18 by eliskam          ###   ########.fr       */
+/*   Updated: 2024/11/01 00:33:25 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ typedef struct s_ray
 
 typedef struct s_color
 {
-    int r;
-    int g;
-    int b;
+   // int r;
+   // int g;
+  //  int b;
     int rgb;
-    int south;
-    int north;
-    int west;
-    int east;
+   // int south;
+ //   int north;
+ //   int west;
+ //   int east;
 }               t_color;
 
 typedef struct s_data
@@ -94,8 +94,8 @@ typedef struct s_data
     int  bits_per_pixel;
     int  line_length;
     int  endian;
-    int xpm_width;
-    int xpm_height;
+   // int xpm_width;
+   // int xpm_height;
 }              t_data;
 
 
@@ -106,7 +106,7 @@ typedef struct s_map
     int height;
     int player_x;
     int player_y;
-    char player_dir;
+  //  char player_dir;
 } t_map;
 
 typedef struct s_player
@@ -119,7 +119,7 @@ typedef struct s_player
     double planeY;//Camera Y plane vector (field of view)
     double moveSpeed;
     double rotSpeed;
-    int angle;
+   // int angle;
 }   t_player;
 
 typedef struct s_texture
@@ -138,9 +138,9 @@ typedef struct s_texture
 
 typedef struct s_game
 {
-    char    **map_layout;
-    int     map_width;
-    int     map_height;
+    //char    **map_layout;
+   // int     map_width;
+   // int     map_height;
     t_player player;
     int floor_color;
     int ceiling_color;

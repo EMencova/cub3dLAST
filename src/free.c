@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yfontene <yfontene@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 11:47:19 by yfontene          #+#    #+#             */
-/*   Updated: 2024/10/24 18:10:33 by yfontene         ###   ########.fr       */
+/*   Updated: 2024/11/01 00:20:15 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void free_file_lines(char **lines)
     }
     free(lines);
 }
+
 void free_split(char **split)
 {
     int i;
@@ -34,4 +35,5 @@ void free_split(char **split)
         free(split[i]);
         i++;
     }
+    free(split);
 }

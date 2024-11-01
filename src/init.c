@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emencova <emencova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:24:10 by emencova          #+#    #+#             */
-/*   Updated: 2024/10/31 15:57:24 by emencova         ###   ########.fr       */
+/*   Updated: 2024/11/01 00:16:26 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,6 @@ void init_player(t_game *game, int x, int y, char direction)
 
 void game_init(t_game *game)
 {
-    game->data.mlx = mlx_init();
-    if (!game->data.mlx)
-        exit(1);
     game->data.win = mlx_new_window(game->data.mlx, WIDTH, HEIGHT, "Cub3D");
     if (!game->data.win) {
         mlx_destroy_display(game->data.mlx);

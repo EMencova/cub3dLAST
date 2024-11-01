@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_raycast.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emencova <emencova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 20:14:46 by yfontene          #+#    #+#             */
-/*   Updated: 2024/10/31 15:47:06 by emencova         ###   ########.fr       */
+/*   Updated: 2024/11/01 00:43:11 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void draw_scene(t_game *game, int x, int drawStart, int drawEnd, int side)
     draw_floor_and_ceiling(game, x, drawStart, drawEnd);
 }
 
+
+
 void raycasting(t_game *game)
 {
     t_ray ray;
@@ -77,4 +79,5 @@ void raycasting(t_game *game)
         x++;
     }
 }
+
 
