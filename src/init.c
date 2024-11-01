@@ -6,11 +6,13 @@
 /*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:24:10 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 00:16:26 by eliskam          ###   ########.fr       */
+/*   Updated: 2024/11/01 09:55:14 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
+
+
 
 void player_ns_dir(t_game *game, char dir)
 {
@@ -48,6 +50,7 @@ void player_ew_dir(t_game *game, char dir)
     }
 }
 
+/*
 void init_player(t_game *game, int x, int y, char direction)
 {
     game->player.posX = x;
@@ -61,6 +64,32 @@ void init_player(t_game *game, int x, int y, char direction)
         game->player.posX += 0.2;
         game->player.posY += 0.2;
     }
+    if (direction == 'N' || direction == 'S')
+        player_ns_dir(game, direction);
+    else if (direction == 'E' || direction == 'W')
+        player_ew_dir(game, direction);
+
+    game->player.moveSpeed = MOVE_SPEED;
+    game->player.rotSpeed = ROTATE_SPEED;
+}
+*/
+
+
+void init_player(t_game *game, int x, int y, char direction)
+{
+    game->player.posX = x + 0.5;  // Center player in the tile
+    game->player.posY = y + 0.5;
+
+    // Adjust position until it is outside the collision buffer from any wall
+    while (game->map.layout[(int)(game->player.posX - COLLISION)][(int)(game->player.posY)] == '1' ||
+           game->map.layout[(int)(game->player.posX + COLLISION)][(int)(game->player.posY)] == '1' ||
+           game->map.layout[(int)(game->player.posX)][(int)(game->player.posY - COLLISION)] == '1' ||
+           game->map.layout[(int)(game->player.posX)][(int)(game->player.posY + COLLISION)] == '1')
+    {
+        game->player.posX += COLLISION * (direction == 'E' ? -1 : 1);
+        game->player.posY += COLLISION * (direction == 'N' ? 1 : -1);
+    }
+
     if (direction == 'N' || direction == 'S')
         player_ns_dir(game, direction);
     else if (direction == 'E' || direction == 'W')

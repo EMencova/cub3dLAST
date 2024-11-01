@@ -6,12 +6,13 @@
 /*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 18:42:39 by yfontene          #+#    #+#             */
-/*   Updated: 2024/10/28 23:06:47 by eliskam          ###   ########.fr       */
+/*   Updated: 2024/11/01 10:18:58 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/cub3d.h"
 
+/* THIS WORKED BEFORE WITHOUT THE COLLISSION DISTANCE
 int can_move_to(t_game *game, int x, int y)
 {
     char tile;
@@ -64,7 +65,67 @@ void move_x(t_game *game, char direction)
         if (can_move_to(game, (int)game->player.posX, (int)(game->player.posY - game->player.dirX * moveSpeed)))
             game->player.posY -= game->player.dirX * moveSpeed;
     }
+}*/
+
+int can_move_to(t_game *game, double newX, double newY)
+{
+    int xMin;
+    int xMax;
+    int yMin;
+    int yMax;
+
+    xMin = (int)(newX - COLLISION);
+    xMax = (int)(newX + COLLISION);
+    yMin = (int)(newY - COLLISION);
+    yMax = (int)(newY + COLLISION); 
+    return (game->map.layout[yMin][xMin] != '1' &&
+            game->map.layout[yMax][xMin] != '1' &&
+            game->map.layout[yMin][xMax] != '1' &&
+            game->map.layout[yMax][xMax] != '1');
 }
+
+void move_y(t_game *game, char direction)
+{
+    double moveSpeed = game->player.moveSpeed;
+    double newX, newY;
+
+    if (direction == 'N')
+    {
+        newX = game->player.posX - game->player.dirX * moveSpeed;
+        newY = game->player.posY - game->player.dirY * moveSpeed;
+    }
+    else if (direction == 'S')
+    {
+        newX = game->player.posX + game->player.dirX * moveSpeed;
+        newY = game->player.posY + game->player.dirY * moveSpeed;
+    }
+    if (can_move_to(game, newX, game->player.posY))
+        game->player.posX = newX;
+    if (can_move_to(game, game->player.posX, newY))
+        game->player.posY = newY;
+}
+
+void move_x(t_game *game, char direction)
+{
+    double moveSpeed = game->player.moveSpeed;
+    double newX, newY;
+
+    if (direction == 'E')
+    {
+        newX = game->player.posX - game->player.dirY * moveSpeed;
+        newY = game->player.posY + game->player.dirX * moveSpeed;
+    }
+    else if (direction == 'W')
+    {
+        newX = game->player.posX + game->player.dirY * moveSpeed;
+        newY = game->player.posY - game->player.dirX * moveSpeed;
+    }
+    if (can_move_to(game, newX, game->player.posY))
+        game->player.posX = newX;
+    if (can_move_to(game, game->player.posX, newY))
+        game->player.posY = newY;
+}
+
 
 void move_player(t_game *game, char direction)
 {

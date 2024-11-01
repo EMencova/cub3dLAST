@@ -6,7 +6,7 @@
 /*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:21:36 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 00:33:25 by eliskam          ###   ########.fr       */
+/*   Updated: 2024/11/01 10:17:07 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@
 # define XPM_HEIGHT        64
 # define XPM_WIDTH         64
 
-# define MOVE_SPEED 0.1
-# define ROTATE_SPEED  0.1
+# define MOVE_SPEED     0.1
+# define ROTATE_SPEED   0.1
+#define COLLISION       0.4
 
 
 typedef struct s_ray

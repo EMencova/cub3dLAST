@@ -6,7 +6,7 @@
 /*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 20:14:46 by yfontene          #+#    #+#             */
-/*   Updated: 2024/11/01 00:43:03 by eliskam          ###   ########.fr       */
+/*   Updated: 2024/11/01 10:14:19 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void draw_floor_and_ceiling(t_game *game, int x, int drawStart, int drawEnd)
     int ceilingColor;
     int y;
 
-    floorColor = get_cell_color('2', game);
-    ceilingColor = get_cell_color('1', game);
+    floorColor = get_cell_color('1', game);
+    ceilingColor = get_cell_color('2', game);
 
     y = 0;
     while (y < drawStart)
