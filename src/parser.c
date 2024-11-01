@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:04:05 by yfontene          #+#    #+#             */
-/*   Updated: 2024/11/01 12:11:02 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:13:30 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,22 +95,6 @@ int	parse_rgb(const char *str, t_color *color)
     return (color->rgb);
 }
 
-/*int parse_color(const char *line, t_color *color)
-{
-    char **split;
-
-    split = ft_split(line, ' ');
-    if (split[0] && split[1])
-    {
-        printf("Color: %s\n", split[1]);
-        printf("color->rgb: %d\n", color->rgb);
-        color->rgb = ft_parse_rgb(split[1], color);  // Usar a nova função de parsing
-        //printf("Color RGB: (%d, %d, %d) -> RGB Integer: %d\n", color->r, color->g, color->b, color->rgb);
-    }
-    
-    free_split(split);
-    return (color->rgb);
-}*/
 int parse_color(const char *line, t_color *color)
 {
 	char **split;

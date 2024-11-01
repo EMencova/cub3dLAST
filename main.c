@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:29:05 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 00:35:29 by eliskam          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:19:29 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ int validate_input(t_map *map, char **av)
 {
 	if (validate_map(map->layout,map->height) == 0)
 	{
-		printf("ERROR\n"MAP_INVALID"\n");
+		printf("Error:\n"MAP_INVALID"\n");
 		return (0);
 	}
 	if (ft_strncmp(av[1] + ft_strlen(av[1]) - 4, ".cub", 4) != 0)
     {
-        printf("WRONG_EXTENSION\n");
+        printf("Error:\n"WRONG_EXT"\n");
         return (0);
     }
     return (1);

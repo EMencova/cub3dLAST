@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:21:36 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 12:05:00 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 12:13:10 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,16 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 
-# define MEMORY_ERROR "ERROR: memory allocation failed"
-# define INVALID_AC "ERROR: Wrong number of arguments."
-# define MAP_NAME "ERROR: Invalid map name."
-# define MAP_NOT_OPEN "ERROR: failed to open map file"
-# define MAP_INVALID "ERROR: Map validation failed"
-# define EMPTY_MAP "ERROR: Empty map file."
-# define WRONG_EXT "ERROR: Wrong file extension!! must be .cub"
-# define MULT_PLAYER "ERROR: Multiple player positions found in map"
-# define NO_PLAYER "ERROR: No player position found in map"
+# define MEMORY_ERROR "Memory allocation failed"
+# define INVALID_AC "Wrong number of arguments."
+# define MAP_NAME "Invalid map name."
+# define MAP_NOT_OPEN "Failed to open map file"
+# define MAP_INVALID "Map validation failed"
+# define EMPTY_MAP "Empty map file."
+# define WRONG_EXT "Wrong file extension!! must be .cub"
+# define MULT_PLAYER "Multiple player positions found in map"
+# define NO_PLAYER "No player position found in map"
+# define INVALID_CHAR "Invalid character in map"
 # define COLOR_RANGE "Color values out of range."
 # define COLOR_FORMAT "Color format incorrect."
 
