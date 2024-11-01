@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:21:36 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 18:16:31 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 22:38:38 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,7 @@ typedef struct s_ray
 
 typedef struct s_color
 {
-    //int r;
-    //int g;
-    //int b;
     int rgb;
-   // int south;
- //   int north;
- //   int west;
- //   int east;
 }               t_color;
 
 typedef struct s_data
@@ -99,8 +92,6 @@ typedef struct s_data
     int  bits_per_pixel;
     int  line_length;
     int  endian;
-   // int xpm_width;
-   // int xpm_height;
 }              t_data;
 
 
@@ -124,7 +115,6 @@ typedef struct s_player
     double planeY;//Camera Y plane vector (field of view)
     double moveSpeed;
     double rotSpeed;
-   // int angle;
 }   t_player;
 
 typedef struct s_texture
@@ -143,9 +133,6 @@ typedef struct s_texture
 
 typedef struct s_game
 {
-    //char    **map_layout;
-   // int     map_width;
-   // int     map_height;
     t_player player;
     int floor_color;
     int ceiling_color;
@@ -156,7 +143,6 @@ typedef struct s_game
 }               t_game;
 
 
-/* Parser */
 void load_map(const char *filename, t_game *game);
 void parse_map(char **file_lines, t_map *map);
 void parse_player(t_map *map, t_game *game);
@@ -166,7 +152,6 @@ int validate_map(char **map_tab, int height);
 int count_lines(const char *filename);
 void free_file_lines(char **lines);
 void free_split(char **split);
-
 int parse_color(const char *line, t_color *color);
 void move_y(t_game *game, char direction);
 void move_x(t_game *game, char direction);
@@ -174,24 +159,16 @@ void move_player(t_game *game, char direction);
 void rotate_player(t_game *game, float angle);
 int is_valid_map_char(char c);
 int check_row_border(char **map_tab, int row, int start);
-
-/* Mlx */
 int close_window(t_game *game);
 int handle_key(int keycode, t_game *game);
 void	game_init (t_game *game);
 void    my_mlx_pixel_put(t_data *data, int x, int y, int color);
-
-/* Raycasting */
 void raycasting(t_game *game);
 void init_player(t_game *game, int x, int y, char direction);
-
-/* Main */
 int validate_input(t_map *map, char **av);
 char	*get_next_line(int fd);
 void	events_init(t_game *game);
 void free_map(t_map *map);
-/////TEST
-//void load_texture(t_game *game, t_data *data, char *path_to_texture);
 void load_textures(t_game *game);
 int get_cell_color(char cell, t_game *game);
 void calculate_ray_direction(t_game *game, int x, double *rayDirX, double *rayDirY);
@@ -205,9 +182,6 @@ void render_player(t_data *data, t_game *game);
 void clear_screen(t_data *data);
 void draw_scaled_cell(t_data *data, int x, int y, int scale, int color);
 void draw_floor_and_ceiling(t_game *game, int x, int drawStart, int drawEnd);
-//void draw_vertical_line(t_game *game, int x, int drawStart, int drawEnd, char *color);
-//void draw_vertical_line(t_game *game, int x, int drawStart, int drawEnd, void *texture);
-//void draw_vertical_line(t_game *game, int x, int drawStart, int drawEnd, void *texture, double perpWallDist);
 void draw_scene(t_game *game, int x, int drawStart, int drawEnd, int side);
 void initialize_dda(t_game *game, double rayDirX, double rayDirY, int *mapX, int *mapY, 
                     double *sideDistX, double *sideDistY, double *deltaDistX, double *deltaDistY, 
@@ -215,10 +189,6 @@ void initialize_dda(t_game *game, double rayDirX, double rayDirY, int *mapX, int
 int perform_dda(t_game *game, int *mapX, int *mapY, double *sideDistX, double *sideDistY, 
                 double deltaDistX, double deltaDistY, int stepX, int stepY);
 void draw_vertical_line(t_game *game, int x, int drawStart, int drawEnd, void *texture);
-
-
-
-//void parse_dtexture(t_texture *texture);
 
 
 

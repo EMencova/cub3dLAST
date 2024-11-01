@@ -1,10 +1,10 @@
 F 0,255,0
 C 255,255,0
 
-NO ./textures/bluestone.xpm
-SO ./textures/bluestone.xpm
-WE ./textures/bluestone.xpm
-EA ./textures/bluestone.xpm
+NO ./textures/basalt_top.xpm
+SO ./textures/wet_sponge.xpm
+WE ./textures/mossy.xpm
+EA ./textures/grey_stone.xpm
 
 1111111111111111111
 1000011001001001001

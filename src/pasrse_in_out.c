@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pasrse_in_out.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:24:30 by yfontene          #+#    #+#             */
-/*   Updated: 2024/11/01 20:06:54 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 22:01:54 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void load_map(const char *filename, t_game *game)
 {
 	char **file_lines;
 	int i;
-
+	
 	file_lines = read_file_cub(filename);
 	if (!file_lines)
 	{

@@ -6,7 +6,7 @@
 /*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 18:27:45 by yfontene          #+#    #+#             */
-/*   Updated: 2024/10/29 14:01:15 by eliskam          ###   ########.fr       */
+/*   Updated: 2024/11/01 22:40:10 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,33 @@ int close_window(t_game *game)
 {
     if (game->map.layout)
         free_map(&game->map);
+    if (game->texture.north_img)
+    {
+        mlx_destroy_image(game->data.mlx, game->texture.north_img);
+        game->texture.north_img = NULL;
+    }
+    if (game->texture.south_img)
+    {
+        mlx_destroy_image(game->data.mlx, game->texture.south_img);
+        game->texture.south_img = NULL;
+    }
+    if (game->texture.west_img)
+    {
+        mlx_destroy_image(game->data.mlx, game->texture.west_img);
+        game->texture.west_img = NULL;
+    }
+    if (game->texture.east_img)
+    {
+        mlx_destroy_image(game->data.mlx, game->texture.east_img);
+        game->texture.east_img = NULL;
+    }
     if (game->data.win)
     {
         mlx_clear_window(game->data.mlx, game->data.win);
         mlx_destroy_window(game->data.mlx, game->data.win);
     }
     if (game->data.img)
-        mlx_destroy_image(game->data.mlx, game->data.img);
+        mlx_destroy_image(game->data.mlx, game->data.img); 
     if (game->data.mlx)
     {
         mlx_destroy_display(game->data.mlx);
@@ -51,6 +71,7 @@ int close_window(t_game *game)
     }
     exit(0);
 }
+
 
 int handle_key(int keycode, t_game *game)
 {

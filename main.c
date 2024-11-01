@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:29:05 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 20:06:27 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 22:40:32 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,32 +27,36 @@ int validate_input(t_map *map, char **av)
     return (1);
 }
 
-
-/*void cleanup_game(t_game *game)
-{
-    if (game->map.layout != NULL)
-        free_map(&game->map);
-    if (game->data.win)
-        mlx_destroy_window(game->data.mlx, game->data.win);
-    if (game->data.img)
-        mlx_destroy_image(game->data.mlx, game->data.img);
-    if (game->data.mlx)
-    {
-        mlx_destroy_display(game->data.mlx);
-        free(game->data.mlx);
-    }
-}*/
-
 void free_textures(t_game *game)
 {
 	if (game->texture.north)
+    {
+        mlx_destroy_image(game->data.mlx, game->texture.north);
 		free(game->texture.north);
+    }
 	if (game->texture.south)
+    {
+        mlx_destroy_image(game->data.mlx, game->texture.south);
 		free(game->texture.south);
+    }
 	if (game->texture.west)
+    {
+        mlx_destroy_image(game->data.mlx, game->texture.west);
 		free(game->texture.west);
+    }
 	if (game->texture.east)
+    {
 		free(game->texture.east);
+        mlx_destroy_image(game->data.mlx, game->texture.east);
+    }
+    if (game->texture.north_img)
+        mlx_destroy_image(game->data.mlx, game->texture.north_img);
+    if (game->texture.south_img)
+        mlx_destroy_image(game->data.mlx, game->texture.south_img);
+    if (game->texture.west_img)
+        mlx_destroy_image(game->data.mlx, game->texture.west_img);
+    if (game->texture.east_img)
+        mlx_destroy_image(game->data.mlx, game->texture.east_img);
 }
 
 void cleanup_game(t_game *game)

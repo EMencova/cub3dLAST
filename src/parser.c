@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:04:05 by yfontene          #+#    #+#             */
-/*   Updated: 2024/11/01 13:16:05 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 22:25:38 by eliskam          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,9 +126,18 @@ void check_texture_path(void *texture_img, const char *texture_path)
 {
 	if (!texture_img)
     {
-		printf("Erro:\n"WRONG_TEX" <%s>\n", texture_path);
+		printf("Error:\n"WRONG_TEX" <%s>\n", texture_path);
 		exit(1);
 	}
+}
+
+void free_texture(t_game *game)
+{
+    free(game->texture.north);
+    free(game->texture.south);
+    free(game->texture.east);
+    free(game->texture.west);
+    
 }
 
 void load_textures(t_game *game)
@@ -155,5 +164,6 @@ void load_textures(t_game *game)
     }
 	game->texture.width = width;
 	game->texture.height = height;
+    free_texture(game);   
 }
 

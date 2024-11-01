@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+         #
+#    By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/23 13:15:17 by yfontene          #+#    #+#              #
-#    Updated: 2024/11/01 12:25:12 by yasmine          ###   ########.fr        #
+#    Updated: 2024/11/01 20:14:36 by eliskam          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CYAN				=	\033[0;36m
 END					=	\033[0m
 
 
-NAME = cub3d
+NAME = cub3D
 LIBFTDIR = ./libft
 LIBFT = $(LIBFTDIR)/libft.a
 CC = cc
