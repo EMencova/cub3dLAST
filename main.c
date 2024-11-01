@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:29:05 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 12:19:29 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 20:06:27 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int validate_input(t_map *map, char **av)
 }
 
 
-void cleanup_game(t_game *game)
+/*void cleanup_game(t_game *game)
 {
     if (game->map.layout != NULL)
         free_map(&game->map);
@@ -41,7 +41,46 @@ void cleanup_game(t_game *game)
         mlx_destroy_display(game->data.mlx);
         free(game->data.mlx);
     }
+}*/
+
+void free_textures(t_game *game)
+{
+	if (game->texture.north)
+		free(game->texture.north);
+	if (game->texture.south)
+		free(game->texture.south);
+	if (game->texture.west)
+		free(game->texture.west);
+	if (game->texture.east)
+		free(game->texture.east);
 }
+
+void cleanup_game(t_game *game)
+{
+    void *mlx_ptr = game->data.mlx;
+    free_textures(game);
+    if (game->data.win != NULL)
+        mlx_destroy_window(mlx_ptr, game->data.win);
+    if (game->data.img != NULL)
+        mlx_destroy_image(mlx_ptr, game->data.img);
+    if (mlx_ptr != NULL)
+    {
+        mlx_destroy_display(mlx_ptr);
+        free(mlx_ptr);
+    }
+    if (game->map.layout != NULL)
+        free_map(&game->map);
+    if (game->data.win)
+        mlx_destroy_window(game->data.mlx, game->data.win);
+    if (game->data.img)
+        mlx_destroy_image(game->data.mlx, game->data.img);
+    if (game->data.mlx)
+    {
+        mlx_destroy_display(game->data.mlx);
+        free(game->data.mlx);
+    }
+}
+
 
 int main(int ac, char **av)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draws.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 20:14:46 by yfontene          #+#    #+#             */
-/*   Updated: 2024/11/01 10:14:19 by eliskam          ###   ########.fr       */
+/*   Updated: 2024/11/01 18:16:06 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,3 +89,38 @@ void draw_vertical_line(t_game *game, int x, int drawStart, int drawEnd, void *t
         y++;
     }
 }
+/*void draw_vertical_line(t_game *game, int x, int drawStart, int drawEnd, void *texture, double perpWallDist)
+{
+    int y;
+    int textureX;
+    int textureY;
+    int color;
+    int bpp;
+    int size_line;
+    char *data_addr;
+    int endian;
+    
+    data_addr = mlx_get_data_addr(texture, &bpp, &size_line, &endian);
+    textureX = (x % game->texture.width);
+    if (drawStart < 0)
+        drawStart = 0;
+    if (drawEnd >= HEIGHT)
+        drawEnd = HEIGHT - 1;
+    int lineHeight = (int)(HEIGHT / perpWallDist);
+    drawStart = HEIGHT / 2 - lineHeight / 2;
+    drawEnd = drawStart + lineHeight;
+    if (drawStart < 0)
+        drawStart = 0;
+    if (drawEnd >= HEIGHT)
+        drawEnd = HEIGHT - 1;
+    for (y = drawStart; y <= drawEnd; y++)
+    {
+        textureY = (y - drawStart) * game->texture.height / lineHeight;
+        if (textureY >= 0 && textureY < game->texture.height)
+        {
+            color = *(int *)(data_addr + textureY * size_line + textureX * (bpp / 8));
+            if (y >= 0 && y < HEIGHT)
+                mlx_pixel_put(game->data.mlx, game->data.win, x, y, color);
+        }
+    }
+}*/

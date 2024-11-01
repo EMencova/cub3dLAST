@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 11:21:36 by emencova          #+#    #+#             */
-/*   Updated: 2024/11/01 13:12:05 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 18:16:31 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,7 @@ void draw_scaled_cell(t_data *data, int x, int y, int scale, int color);
 void draw_floor_and_ceiling(t_game *game, int x, int drawStart, int drawEnd);
 //void draw_vertical_line(t_game *game, int x, int drawStart, int drawEnd, char *color);
 //void draw_vertical_line(t_game *game, int x, int drawStart, int drawEnd, void *texture);
+//void draw_vertical_line(t_game *game, int x, int drawStart, int drawEnd, void *texture, double perpWallDist);
 void draw_scene(t_game *game, int x, int drawStart, int drawEnd, int side);
 void initialize_dda(t_game *game, double rayDirX, double rayDirY, int *mapX, int *mapY, 
                     double *sideDistX, double *sideDistY, double *deltaDistX, double *deltaDistY, 

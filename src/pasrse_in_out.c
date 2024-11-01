@@ -6,7 +6,7 @@
 /*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 10:24:30 by yfontene          #+#    #+#             */
-/*   Updated: 2024/11/01 13:07:00 by yasmine          ###   ########.fr       */
+/*   Updated: 2024/11/01 20:06:54 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,19 @@ char **read_file_cub(const char *filename)
 	file[i] = NULL;
 	close(fd);
 	return (file);
+}
+
+void free_trimmed(char **file_lines)
+{
+	int i;
+
+	i = 0;
+	while (file_lines[i])
+	{
+		free(file_lines[i]);
+		i++;
+	}
+	free(file_lines);
 }
 
 void load_map(const char *filename, t_game *game)

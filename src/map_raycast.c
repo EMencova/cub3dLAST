@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_raycast.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eliskam <eliskam@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 20:14:46 by yfontene          #+#    #+#             */
-/*   Updated: 2024/11/01 00:43:11 by eliskam          ###   ########.fr       */
+/*   Updated: 2024/11/01 18:15:52 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,6 @@ void draw_scene(t_game *game, int x, int drawStart, int drawEnd, int side)
         draw_vertical_line(game, x, drawStart, drawEnd, game->texture.west_img);
     draw_floor_and_ceiling(game, x, drawStart, drawEnd);
 }
-
-
 
 void raycasting(t_game *game)
 {
