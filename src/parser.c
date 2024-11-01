@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emencova <emencova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:04:05 by yfontene          #+#    #+#             */
-/*   Updated: 2024/10/31 15:50:45 by emencova         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:11:02 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void parse_map(char **file_lines, t_map *map)
     }
     map->height = i - map_start;
     map->width = max_width;
-    printf("Map dimensions: height=%d, width=%d\n", map->height, map->width);
+    //printf("Map dimensions: height=%d, width=%d\n", map->height, map->width);
     map->layout = malloc(sizeof(char *) * (map->height + 1));
     if (!map->layout)
 		return;
@@ -59,21 +59,65 @@ void parse_map(char **file_lines, t_map *map)
 		j++;
 	}
     map->layout[map->height] = NULL;
-	//just for debugging
+	/*just for debugging
     printf("Map layout:\n");
     for (j = 0; j < map->height; j++)
     {
         printf("%s\n", map->layout[j]);
+    }*/
+}
+int	parse_rgb(const char *str, t_color *color)
+{
+    char **rgb_split;
+    int r;
+    int g;
+    int b;
+    int rgb;
+
+    rgb_split = ft_split(str, ',');
+    if (!rgb_split || !rgb_split[0] || !rgb_split[1] || !rgb_split[2])
+    {
+        printf("Error:\n"COLOR_FORMAT"\n");
+        exit(1);
     }
+    r = ft_atoi(rgb_split[0]);
+    g = ft_atoi(rgb_split[1]);
+    b = ft_atoi(rgb_split[2]);
+    if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
+    {
+        printf("Error:\n"COLOR_RANGE"\n");
+        free_split(rgb_split);
+        exit(1);
+    }
+    rgb = (r << 16) | (g << 8) | b;
+    color->rgb = rgb;
+    free_split(rgb_split);
+    return (color->rgb);
 }
 
+/*int parse_color(const char *line, t_color *color)
+{
+    char **split;
+
+    split = ft_split(line, ' ');
+    if (split[0] && split[1])
+    {
+        printf("Color: %s\n", split[1]);
+        printf("color->rgb: %d\n", color->rgb);
+        color->rgb = ft_parse_rgb(split[1], color);  // Usar a nova função de parsing
+        //printf("Color RGB: (%d, %d, %d) -> RGB Integer: %d\n", color->r, color->g, color->b, color->rgb);
+    }
+    
+    free_split(split);
+    return (color->rgb);
+}*/
 int parse_color(const char *line, t_color *color)
 {
 	char **split;
 
 	split = ft_split(line, ' ');
 	if (split[0] && split[1])
-		color->rgb = ft_atoi(split[1]);
+		color->rgb = parse_rgb(split[1], color);
 	free_split(split);
 	return (color->rgb);
 }

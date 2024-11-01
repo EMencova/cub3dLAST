@@ -3,31 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emencova <emencova@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yasmine <yasmine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 12:12:52 by emencova          #+#    #+#             */
-/*   Updated: 2024/10/31 15:50:24 by emencova         ###   ########.fr       */
+/*   Updated: 2024/11/01 12:10:12 by yasmine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../inc/cub3d.h"
 
 int	ft_atoi(const char *nptr)
 {
 	size_t	i;
-	int		sign;
 	int		res;
 
 	i = 0;
 	res = 0;
-	sign = 1;
 	while ((nptr[i] <= 13 && nptr[i] >= 9)
 		|| (nptr[i] == 32))
 		i++;
 	if (nptr[i] == '+' || nptr[i] == '-')
 	{
 		if (nptr[i] == '-')
-			sign = -1;
+		{
+			printf("Error:\n"COLOR_RANGE"\n");
+			exit (1);
+		}
 		i++;
 	}
 	while ((nptr[i] >= '0' && nptr[i] <= '9') || nptr[i] == ',')
@@ -40,6 +42,6 @@ int	ft_atoi(const char *nptr)
 			i++;
 		}
 	}
-	return (sign * res);
+	return (res);
 }
 
